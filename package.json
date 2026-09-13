@@ -2,7 +2,7 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon --exec tsx src/server.ts",
     "build": "tsc",
@@ -13,7 +13,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/bcrypt": "^6.0.0",
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
@@ -21,17 +20,16 @@
     "jsonwebtoken": "^9.0.3",
     "mongodb": "^7.5.0",
     "mongoose": "^9.9.1",
-    "multer": "^2.2.0",
-    "nodemon": "^3.1.14"
+    "multer": "^2.2.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/jsonwebtoken": "^9.0.10",
-    "@types/mongoose": "^5.11.96",
     "@types/multer": "^2.2.0",
     "@types/node": "^26.1.1",
-    "@types/nodemon": "^1.19.6",
+    "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "tsx": "^4.23.5",
     "typescript": "^7.0.2"
