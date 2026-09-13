@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
 import * as saleService from "../services/saleService";
+import { AuthenticatedRequest } from "../types/express";
 
 
 
-export const createSale = async (req: Request, res: Response) => {
+export const createSale = async (req: AuthenticatedRequest, res: Response) => {
   try {
     const userId = req.user?.id;
 
