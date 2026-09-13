@@ -1,9 +1,10 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Response } from "express";
+import { AuthenticatedRequest } from "../controllers/saleController";
 import { UserRole } from "../types/user.types";
 
 export const authorize = (...roles: UserRole[]) => {
   return (
-    req: Request,
+    req: AuthenticatedRequest,
     res: Response,
     next: NextFunction
   ) => {
@@ -14,8 +15,7 @@ export const authorize = (...roles: UserRole[]) => {
         message: "Unauthorized",
       });
     }
-
-    if (!roles.includes(req.user.role)) {
+if (!roles.includes(req.user.role as UserRole)) {
       return res.status(403).json({
         success: false,
         message: "Forbidden",
