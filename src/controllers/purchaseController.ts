@@ -70,7 +70,7 @@ export const createPurchase = async (
   }
 };
 
-export const updatePurchaseStatus = async (req: Request, res: Response) => {
+export const updatePurchaseStatus = async (req: AuthenticatedRequest, res: Response) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
