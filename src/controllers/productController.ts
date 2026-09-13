@@ -3,6 +3,12 @@ import * as productService from "../services/productService";
 
 export const createProduct = async (req: Request, res: Response) => {
   try {
+       if (!req.user) {
+      return res.status(401).json({
+        success: false,
+        message: "Unauthorized",
+      });
+    }
     const product = await productService.createProduct(req.body, req.user.id);
 
     res.status(201).json({
