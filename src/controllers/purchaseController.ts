@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import * as purchaseService from "../services/purchaseService";
 
 
-export interface AuthenticatedRequest extends Request {}
+
 
 export const getPurchases = async (req: Request, res: Response) => {
   try {
@@ -37,7 +37,7 @@ export const getPurchaseById = async (req: Request, res: Response) => {
 };
 
 export const createPurchase = async (
-  req: AuthenticatedRequest,
+  req: Request,
   res: Response
 ) => {
   try {

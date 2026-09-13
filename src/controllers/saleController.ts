@@ -1,17 +1,9 @@
 import { Request, Response } from "express";
 import * as saleService from "../services/saleService";
 
-export interface AuthenticatedRequest extends Omit<Request, "user"> {
-  user?: {
-    id?: string;
-    _id?: string;
-    role?: string;
-    iat?: number;
-    exp?: number;
-  };
-}
 
-export const createSale = async (req: AuthenticatedRequest, res: Response) => {
+
+export const createSale = async (req: Request, res: Response) => {
   try {
     const userId = req.user?.id || req.user?._id?.toString();
 
