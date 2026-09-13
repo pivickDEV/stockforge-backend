@@ -1,11 +1,9 @@
 import { Request, Response } from "express";
 import * as productService from "../services/productService";
-import { AuthenticatedRequest } from "./saleController";
 
-export const createProduct = async (req: AuthenticatedRequest, res: Response) => {
+export const createProduct = async (req: Request, res: Response) => {
   try {
-    const userId = (req.user?.id || req.user?._id)!;
-    const product = await productService.createProduct(req.body, userId);
+    const product = await productService.createProduct(req.body, req.user.id);
 
     res.status(201).json({
       success: true,

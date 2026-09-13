@@ -1,9 +1,8 @@
-import { NextFunction, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
-import { AuthenticatedRequest } from "../controllers/purchaseController";
 
 export const authenticate = (
-  req: AuthenticatedRequest,
+  req: Request,
   res: Response,
   next: NextFunction
 ) => {
@@ -24,7 +23,7 @@ export const authenticate = (
       process.env.JWT_SECRET as string
     ) as typeof req.user;
 
-    req.user = decoded as NonNullable<AuthenticatedRequest["user"]>;
+    req.user = decoded;
 
     next();
   } catch {

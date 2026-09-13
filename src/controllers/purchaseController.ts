@@ -2,15 +2,7 @@ import { Request, Response } from "express";
 import * as purchaseService from "../services/purchaseService";
 
 
-export interface AuthenticatedRequest extends Omit<Request, "user"> {
-  user?: {
-    id?: string;
-    _id?: string;
-    role?: string;
-    iat?: number;
-    exp?: number;
-  };
-}
+export interface AuthenticatedRequest extends Request {}
 
 export const getPurchases = async (req: Request, res: Response) => {
   try {
@@ -70,7 +62,7 @@ export const createPurchase = async (
   }
 };
 
-export const updatePurchaseStatus = async (req: AuthenticatedRequest, res: Response) => {
+export const updatePurchaseStatus = async (req: Request, res: Response) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
