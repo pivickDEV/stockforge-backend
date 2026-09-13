@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import * as purchaseService from "../services/purchaseService";
+import { AuthenticatedRequest } from "../types/auth.types";
 
 
 
@@ -38,7 +39,7 @@ export const getPurchaseById = async (req: Request, res: Response) => {
 };
 
 export const createPurchase = async (
-  req: Request,
+  req: AuthenticatedRequest,
   res: Response
 ) => {
   try {
@@ -63,7 +64,7 @@ export const createPurchase = async (
   }
 };
 
-export const updatePurchaseStatus = async (req: Request, res: Response) => {
+export const updatePurchaseStatus = async (req: AuthenticatedRequest, res: Response) => {
   try {
     const { id } = req.params;
     const { status } = req.body;

@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import * as productService from "../services/productService";
+import { AuthenticatedRequest } from "../types/auth.types";
 
-export const createProduct = async (req: Request, res: Response) => {
+export const createProduct = async (req: AuthenticatedRequest, res: Response) => {
   try {
        if (!req.user) {
       return res.status(401).json({
