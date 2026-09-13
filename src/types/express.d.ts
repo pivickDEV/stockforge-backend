@@ -1,11 +1,16 @@
-import type { Request } from "express";
-import type { UserRole } from "./user.types";
+import { UserRole } from "./user.types";
 
-export interface AuthenticatedRequest extends Request {
-  user: {
-    id: string;
-    role: UserRole;
-    iat: number;
-    exp: number;
-  };
+declare global {
+  namespace Express {
+    interface Request {
+      user?: {
+        id: string;
+        role: UserRole;
+        iat: number;
+        exp: number;
+      };
+    }
+  }
 }
+
+export { };
